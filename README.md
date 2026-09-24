@@ -17,13 +17,3 @@ Las capturas de pantalla y el diagrama del modelo de datos están embebidos como
 El diagrama entidad-relación es **SVG escrito a mano**, no una imagen exportada. Pesa 5 KB, es texto seleccionable, escala sin pixelarse y toma sus colores de las variables CSS, así que se adapta solo al tema claro y al oscuro.
 
 El tema sigue la preferencia del sistema mediante `prefers-color-scheme`, con la paleta completa definida en `:root` y redefinida para modo oscuro. La maquetación usa CSS Grid y baja a una columna por debajo de 760 px.
-
-## Publicar cambios
-
-```bash
-git add index.html
-git commit -m "Actualiza el portfolio"
-git push
-```
-
-GitHub Pages reconstruye el sitio en menos de un minuto.
