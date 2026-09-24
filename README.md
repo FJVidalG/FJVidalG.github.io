@@ -2,8 +2,6 @@
 
 Portfolio personal publicado con GitHub Pages: **https://fjvidalg.github.io**
 
-Página única, sin dependencias ni proceso de compilación. Todo el CSS y las imágenes van embebidos en `index.html`, de modo que solo carga un recurso externo —las tipografías de Google Fonts— y funciona igual dentro de diez años.
-
 ## Contenido
 
 | Archivo | Qué es |
