@@ -7,6 +7,7 @@ Portfolio personal publicado con GitHub Pages: **https://fjvidalg.github.io**
 | Archivo | Qué es |
 |---------|--------|
 | `index.html` | La página completa: estructura, estilos, capturas e ilustraciones |
+| `img/` | Capturas de pantalla de los proyectos, en WebP |
 | `CV_Francisco_Vidal.pdf` | Currículum enlazado desde la página |
 | `.nojekyll` | Desactiva el procesado Jekyll de GitHub Pages: el sitio se sirve tal cual |
 
