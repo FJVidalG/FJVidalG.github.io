@@ -7,7 +7,7 @@
 <meta name="description" content="Portfolio de Francisco Jesús Vidal García, desarrollador Android y Java en Málaga. Arquitectura y decisiones de diseño de seis proyectos.">
 <meta name="author" content="Francisco Jesús Vidal García">
 
-<!-- Vista previa al compartir el enlace (LinkedIn, WhatsApp, Slack) -->
+<!-- Cabecera -->
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Francisco Jesús Vidal García, desarrollador Android | Java">
 <meta property="og:description" content="Portfolio de Francisco Jesús Vidal García, desarrollador Android y Java en Málaga. Arquitectura y decisiones de diseño de seis proyectos.">
@@ -94,7 +94,6 @@
     border-radius: 2px;
   }
 
-  /* ── etiquetas mono ───────────────────────────── */
   .mono {
     font-family: var(--f-mono);
     font-size: 11px;
@@ -103,7 +102,7 @@
     color: var(--ink-3);
   }
 
-  /* ── cabecera ─────────────────────────────────── */
+  /* cabecera */
   .masthead {
     border-bottom: 2px solid var(--ink);
     padding-block: 56px 26px;
@@ -159,7 +158,6 @@
   .links a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 1px; }
   .links a:hover { color: var(--brass); border-bottom-color: var(--brass); }
 
-  /* ── tesis ────────────────────────────────────── */
   .thesis {
     padding-block: 40px 44px;
     border-bottom: 1px solid var(--line);
@@ -178,7 +176,7 @@
   .thesis p:last-child { margin-bottom: 0; }
   .thesis strong { color: var(--ink); font-weight: 600; }
 
-  /* ── secciones ────────────────────────────────── */
+  /* secciones */
   section { padding-block: 48px 0; }
   .sec-label {
     font-family: var(--f-mono);
@@ -197,7 +195,7 @@
     font-size: 15.5px;
   }
 
-  /* ── entrada de proyecto (hoja de especificación) ── */
+  /* entrada de proyecto */
   .entry {
     display: grid;
     grid-template-columns: var(--rail) minmax(0, 1fr);
@@ -249,13 +247,13 @@
     padding: 1px 4px;
   }
 
-  /* ── bloque de decisión ───────────────────────── */
+  /* decisión */
   .decision { margin: 22px 0 0; max-width: var(--measure); }
   .decision .mono { color: var(--brass); display: block; margin-bottom: 5px; }
   .decision p { margin: 0 0 13px; color: var(--ink-2); }
   .decision p:last-child { margin-bottom: 0; }
 
-  /* ── capturas ─────────────────────────────────── */
+  /* capturas */
   .shots {
     margin: 28px 0 0;
     display: grid;
@@ -285,7 +283,7 @@
     margin-bottom: 4px;
   }
 
-  /* ── diagrama ─────────────────────────────────── */
+  /* diagrama */
   .diagram { margin: 28px 0 0; }
   .diagram > .mono { display: block; margin-bottom: 9px; }
   .diagram .frame {
@@ -311,7 +309,7 @@
   .diagram img.capture { display: block; width: 100%; height: auto; border: 1px solid var(--line-2); background: #fff; }
   .diagram figcaption code { background: color-mix(in srgb, var(--navy) 11%, transparent); }
 
-  /* ── diagramas de flujo ───────────────────────── */
+  /* diagramas de flujo */
   .fl { display: block; width: 100%; min-width: 560px; height: auto; }
   .fl .bx   { fill: var(--surface); stroke: var(--line-2); stroke-width: 1; }
   .fl .bx.key { stroke: var(--brass); stroke-width: 1.6; }
@@ -323,7 +321,7 @@
   .fl .ln   { stroke: var(--line-2); stroke-width: 1.25; fill: none; }
   .fl .ah   { fill: var(--line-2); }
 
-  /* ── par petición / respuesta ─────────────────── */
+  /* petición / respuesta */
   .io { margin: 24px 0 0; max-width: var(--measure); }
   .io > .mono { display: block; margin-bottom: 8px; }
   .io.deny > .mono { color: var(--brass); }
@@ -345,7 +343,7 @@
   .io pre .dim { color: var(--ink-3); }
   .io figcaption { margin-top: 9px; font-size: 14px; color: var(--ink-2); }
 
-  /* ── tablas ───────────────────────────────────── */
+  /* tablas */
   .scroller { overflow-x: auto; margin: 22px 0 0; }
   table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 420px; }
   caption {
@@ -378,7 +376,7 @@
   tbody tr:first-child th { border-top: none; }
   td.m, th.m { font-family: var(--f-mono); font-size: 12.5px; white-space: nowrap; }
 
-  /* ── cadena de verificación (secuencia real) ──── */
+  /* verificación */
   .chain { margin: 24px 0 0; max-width: 46ch; }
   .chain ol { list-style: none; margin: 0; padding: 0; counter-reset: step; }
   .chain li {
@@ -410,7 +408,7 @@
   .chain .step-t { font-weight: 600; font-size: 14.5px; }
   .chain .step-d { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
 
-  /* ── proyectos compactos ──────────────────────── */
+  /* proyectos */
   .compact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -437,7 +435,7 @@
   .compact .stack { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); margin-top: auto; }
   .compact .repo { font-family: var(--f-mono); font-size: 11.5px; }
 
-  /* ── stack ────────────────────────────────────── */
+  /* stack */
   .stack-list { margin: 30px 0 0; display: grid; gap: 0; }
   .stack-row {
     display: grid;
@@ -451,7 +449,7 @@
   .stack-row .v { font-size: 15px; color: var(--ink-2); }
   .stack-row .v b { color: var(--ink); font-weight: 500; }
 
-  /* ── experiencia ──────────────────────────────── */
+  /* experiencia */
   .cv-row {
     display: grid;
     grid-template-columns: var(--rail) minmax(0, 1fr);
@@ -470,7 +468,7 @@
   .cv-row p { margin: 0; font-size: 14.5px; color: var(--ink-2); max-width: var(--measure); }
   .cv-row .when { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.06em; color: var(--ink-3); }
 
-  /* ── contacto ─────────────────────────────────── */
+  /* contacto */
   .contact {
     margin-top: 56px;
     padding-top: 34px;
@@ -495,7 +493,6 @@
 </style>
 
 <style>
-  /* Reset mínimo: en el artefacto lo aportaba la plataforma, aquí va explícito */
   *, *::before, *::after { box-sizing: border-box; }
   :root {
     color-scheme: light dark;
@@ -532,7 +529,7 @@
     <h2 class="sec-label" id="sec-proyectos">Proyectos</h2>
     <p class="sec-note">Los tres primeros son privados: manejan datos reales de personas o son encargos de empresa, así que el código no se publica. Lo que sigue es su arquitectura y las decisiones que la sostienen.</p>
 
-    <!-- ── PsyTrack ── -->
+    <!-- PsyTrack -->
     <article class="entry">
       <div class="spec">
         <span class="tag locked">Código privado</span>
@@ -726,7 +723,7 @@
       </div>
     </article>
 
-    <!-- ── Photo_server ── -->
+    <!-- Photo_server -->
     <article class="entry">
       <div class="spec">
         <span class="tag locked">Código de empresa</span>
@@ -817,7 +814,7 @@
       </div>
     </article>
 
-    <!-- ── Integración SEPE ── -->
+    <!-- Integración SEPE -->
     <article class="entry">
       <div class="spec">
         <span class="tag locked">Encargo de empresa</span>
