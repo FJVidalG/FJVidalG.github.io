@@ -1,16 +1,17 @@
-# Portfolio · Francisco Jesús Vidal García
+# Portfolio de Francisco Jesús Vidal García
 
 Portfolio personal publicado con GitHub Pages: **https://fjvidalg.github.io**
 
-Página estática escrita a mano, sin frameworks ni proceso de compilación. El único recurso externo son las tipografías de Google Fonts.
+Página estática escrita a mano en HTML y CSS, sin frameworks ni proceso de compilación. El único recurso externo son las tipografías de Google Fonts.
 
 ## Contenido
 
 | Archivo | Qué es |
 |---------|--------|
-| `index.html` | La página completa: estructura, estilos y diagramas |
+| `index.html` | Estructura y contenido de la página, con los diagramas en SVG |
+| `css/estilos.css` | Estilos, incluido el tema oscuro |
 | `img/` | Capturas de pantalla de los proyectos, en WebP |
-| `CV_Francisco_Vidal.pdf` | Currículum enlazado desde la página |
+| `CV_Francisco_Vidal_Desarrollador.pdf` | Currículum enlazado desde la página |
 | `.nojekyll` | Desactiva el procesado Jekyll de GitHub Pages: el sitio se sirve tal cual |
 
 ## Detalles técnicos

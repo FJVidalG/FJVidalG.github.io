@@ -7,7 +7,7 @@
 <meta name="description" content="Portfolio de Francisco Jesús Vidal García, desarrollador Android y Java en Málaga. Arquitectura y decisiones de diseño de seis proyectos.">
 <meta name="author" content="Francisco Jesús Vidal García">
 
-<!-- Vista previa al compartir el enlace -->
+<!-- Vista previa al compartir -->
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Francisco Jesús Vidal García, desarrollador Android | Java">
 <meta property="og:description" content="Portfolio de Francisco Jesús Vidal García, desarrollador Android y Java en Málaga. Arquitectura y decisiones de diseño de seis proyectos.">
@@ -20,493 +20,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/estilos.css">
 
-<style>
-  :root {
-    --ground:   #F4F6F8;
-    --surface:  #FFFFFF;
-    --ink:      #131922;
-    --ink-2:    #4B5665;
-    --ink-3:    #77828F;
-    --line:     #DCE1E7;
-    --line-2:   #C3CAD3;
-    --navy:     #1B3A5C;
-    --brass:    #966F24;
-    --open:     #2C6448;
 
-    --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
-    --f-body:    "IBM Plex Sans", system-ui, -apple-system, sans-serif;
-    --f-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
-
-    --measure: 66ch;
-    --rail: 190px;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --ground:  #0E1318;
-      --surface: #151B23;
-      --ink:     #E5E9EE;
-      --ink-2:   #9BA6B2;
-      --ink-3:   #74808D;
-      --line:    #242C36;
-      --line-2:  #354050;
-      --navy:    #8FB3D9;
-      --brass:   #D2A455;
-      --open:    #6FB48E;
-    }
-  }
-
-  :root[data-theme="dark"] {
-    --ground:  #0E1318;
-    --surface: #151B23;
-    --ink:     #E5E9EE;
-    --ink-2:   #9BA6B2;
-    --ink-3:   #74808D;
-    --line:    #242C36;
-    --line-2:  #354050;
-    --navy:    #8FB3D9;
-    --brass:   #D2A455;
-    --open:    #6FB48E;
-  }
-
-  body {
-    background: var(--ground);
-    color: var(--ink);
-    font-family: var(--f-body);
-    font-size: 16px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .wrap {
-    max-width: 960px;
-    margin-inline: auto;
-    padding-inline: 20px;
-    padding-block: 0 72px;
-  }
-
-  a { color: var(--navy); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-  a:hover { color: var(--brass); }
-  a:focus-visible {
-    outline: 2px solid var(--brass);
-    outline-offset: 3px;
-    border-radius: 2px;
-  }
-
-  /* etiquetas mono */
-  .mono {
-    font-family: var(--f-mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-  }
-
-  /* cabecera */
-  .masthead {
-    border-bottom: 2px solid var(--ink);
-    padding-block: 56px 26px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    gap: 24px 40px;
-  }
-  .masthead h1 {
-    font-family: var(--f-display);
-    font-weight: 700;
-    font-size: clamp(2.1rem, 6vw, 3.1rem);
-    line-height: 1.02;
-    letter-spacing: -0.028em;
-    margin: 0 0 10px;
-    text-wrap: balance;
-  }
-  .masthead .role {
-    font-family: var(--f-mono);
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--navy);
-  }
-  .masthead .place {
-    font-family: var(--f-mono);
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-    margin-top: 6px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 22px;
-  }
-  .masthead .place a {
-    text-transform: none;
-    letter-spacing: 0.02em;
-    color: var(--ink-2);
-    text-decoration: none;
-    border-bottom: 1px solid var(--line-2);
-  }
-  .masthead .place a:hover { color: var(--brass); border-bottom-color: var(--brass); }
-  .masthead .who { flex: 1 1 320px; }
-
-  .links {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    font-family: var(--f-mono);
-    font-size: 12.5px;
-  }
-  .links a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 1px; }
-  .links a:hover { color: var(--brass); border-bottom-color: var(--brass); }
-
-  /* tesis */
-  .thesis {
-    padding-block: 40px 44px;
-    border-bottom: 1px solid var(--line);
-  }
-  .thesis p.lead {
-    font-family: var(--f-display);
-    font-weight: 600;
-    font-size: clamp(1.25rem, 3.1vw, 1.72rem);
-    line-height: 1.32;
-    letter-spacing: -0.014em;
-    max-width: 34ch;
-    margin: 0 0 22px;
-    text-wrap: balance;
-  }
-  .thesis p { max-width: var(--measure); margin: 0 0 14px; color: var(--ink-2); }
-  .thesis p:last-child { margin-bottom: 0; }
-  .thesis strong { color: var(--ink); font-weight: 600; }
-
-  /* secciones */
-  section { padding-block: 48px 0; }
-  .sec-label {
-    font-family: var(--f-mono);
-    font-size: 11.5px;
-    letter-spacing: 0.17em;
-    text-transform: uppercase;
-    color: var(--navy);
-    margin: 0 0 4px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--line-2);
-  }
-  .sec-note {
-    margin: 14px 0 0;
-    max-width: var(--measure);
-    color: var(--ink-2);
-    font-size: 15.5px;
-  }
-
-  /* entrada de proyecto */
-  .entry {
-    display: grid;
-    grid-template-columns: var(--rail) minmax(0, 1fr);
-    gap: 32px;
-    padding-block: 34px;
-    border-bottom: 1px solid var(--line);
-  }
-  .entry:last-of-type { border-bottom: none; }
-  .entry { scroll-margin-top: 16px; }
-
-  .spec { display: flex; flex-direction: column; gap: 14px; }
-  .spec div { display: flex; flex-direction: column; gap: 3px; }
-  .spec dt, .spec .k {
-    font-family: var(--f-mono);
-    font-size: 10.5px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-  }
-  .spec .v { font-size: 13.5px; color: var(--ink-2); line-height: 1.45; }
-
-  .tag {
-    align-self: flex-start;
-    font-family: var(--f-mono);
-    font-size: 10.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 3px 7px;
-    border: 1px solid currentColor;
-  }
-  .tag.locked { color: var(--brass); }
-  .tag.open   { color: var(--open); }
-
-  .body h3 {
-    font-family: var(--f-display);
-    font-weight: 700;
-    font-size: clamp(1.32rem, 3.4vw, 1.68rem);
-    letter-spacing: -0.02em;
-    line-height: 1.16;
-    margin: 0 0 12px;
-  }
-  .body > p { max-width: var(--measure); margin: 0 0 16px; color: var(--ink-2); }
-  .body > p:last-child { margin-bottom: 0; }
-  .body strong { color: var(--ink); font-weight: 600; }
-  code {
-    font-family: var(--f-mono);
-    font-size: 0.88em;
-    color: var(--ink);
-    background: color-mix(in srgb, var(--navy) 9%, transparent);
-    padding: 1px 4px;
-  }
-
-  /* decisión */
-  .decision { margin: 22px 0 0; max-width: var(--measure); }
-  .decision .mono { color: var(--brass); display: block; margin-bottom: 5px; }
-  .decision p { margin: 0 0 13px; color: var(--ink-2); }
-  .decision p:last-child { margin-bottom: 0; }
-
-  /* capturas */
-  .shots {
-    margin: 28px 0 0;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 26px 20px;
-  }
-  .shots figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
-  .shots img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    aspect-ratio: 23 / 50;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-    border: 1px solid var(--line-2);
-    background: #fff;
-  }
-  .shots figcaption { font-size: 13.5px; line-height: 1.5; color: var(--ink-2); }
-  .shots .n {
-    display: block;
-    font-family: var(--f-mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--navy);
-    margin-bottom: 4px;
-  }
-
-  /* diagrama */
-  .diagram { margin: 28px 0 0; }
-  .diagram > .mono { display: block; margin-bottom: 9px; }
-  .diagram .frame {
-    overflow-x: auto;
-    border: 1px solid var(--line);
-    background: color-mix(in srgb, var(--navy) 4%, var(--ground));
-    padding: 20px 16px;
-  }
-
-  .er { display: block; width: 100%; min-width: 620px; height: auto; }
-  .er .bx { fill: var(--surface); stroke: var(--line-2); stroke-width: 1; }
-  .er .hd { fill: color-mix(in srgb, var(--navy) 9%, var(--surface)); stroke: var(--line-2); stroke-width: 1; }
-  .er .tt { font-family: var(--f-mono); font-size: 12.5px; font-weight: 500; fill: var(--ink); }
-  .er .fd { font-family: var(--f-mono); font-size: 11px; fill: var(--ink-2); }
-  .er .fd.key { fill: var(--brass); font-weight: 500; }
-  .er .ln { stroke: var(--line-2); stroke-width: 1.25; fill: none; }
-  .er .kl { stroke: var(--brass); stroke-width: 1.75; fill: none; }
-  .er .el { font-family: var(--f-mono); font-size: 10px; fill: var(--brass); letter-spacing: 0.04em; }
-  .er .en { font-family: var(--f-mono); font-size: 9.5px; fill: var(--ink-3); }
-  .er .ah { fill: var(--line-2); }
-  .er .ahk { fill: var(--brass); }
-  .diagram figcaption { margin-top: 11px; font-size: 14px; line-height: 1.55; color: var(--ink-2); max-width: var(--measure); }
-  .diagram img.capture { display: block; width: 100%; height: auto; border: 1px solid var(--line-2); background: #fff; }
-  .diagram figcaption code { background: color-mix(in srgb, var(--navy) 11%, transparent); }
-
-  /* diagramas de flujo */
-  .fl { display: block; width: 100%; min-width: 560px; height: auto; }
-  .fl .bx   { fill: var(--surface); stroke: var(--line-2); stroke-width: 1; }
-  .fl .bx.key { stroke: var(--brass); stroke-width: 1.6; }
-  .fl .tt   { font-family: var(--f-mono); font-size: 12.5px; font-weight: 500; fill: var(--ink); }
-  .fl .sb   { font-family: var(--f-mono); font-size: 10.5px; fill: var(--ink-3); }
-  .fl .an   { font-family: var(--f-body); font-size: 12px; fill: var(--ink-2); }
-  .fl .lb   { font-family: var(--f-mono); font-size: 10.5px; fill: var(--ink-2); }
-  .fl .zl   { font-family: var(--f-mono); font-size: 10px; fill: var(--brass); letter-spacing: 0.06em; }
-  .fl .ln   { stroke: var(--line-2); stroke-width: 1.25; fill: none; }
-  .fl .ah   { fill: var(--line-2); }
-
-  /* petición / respuesta */
-  .io { margin: 24px 0 0; max-width: var(--measure); }
-  .io > .mono { display: block; margin-bottom: 8px; }
-  .io.deny > .mono { color: var(--brass); }
-  .io pre {
-    margin: 0;
-    overflow-x: auto;
-    border: 1px solid var(--line);
-    border-left: 2px solid var(--line-2);
-    background: var(--surface);
-    padding: 14px 16px;
-    font-family: var(--f-mono);
-    font-size: 13px;
-    line-height: 1.62;
-    color: var(--ink-2);
-  }
-  .io pre b { color: var(--ink); font-weight: 500; }
-  .io pre .st-ok { color: var(--open); font-weight: 500; }
-  .io pre .st-no { color: var(--brass); font-weight: 500; }
-  .io pre .dim { color: var(--ink-3); }
-  .io figcaption { margin-top: 9px; font-size: 14px; color: var(--ink-2); }
-
-  /* tablas */
-  .scroller { overflow-x: auto; margin: 22px 0 0; }
-  table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 420px; }
-  caption {
-    caption-side: top;
-    text-align: left;
-    font-family: var(--f-mono);
-    font-size: 10.5px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-    padding-bottom: 9px;
-  }
-  th, td { text-align: left; padding: 9px 14px 9px 0; vertical-align: top; }
-  thead th {
-    font-family: var(--f-mono);
-    font-weight: 500;
-    font-size: 10.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-    border-bottom: 1px solid var(--line-2);
-  }
-  tbody tr + tr td { border-top: 1px solid var(--line); }
-  tbody th {
-    font-weight: 600;
-    color: var(--ink);
-    border-top: 1px solid var(--line);
-    white-space: nowrap;
-  }
-  tbody tr:first-child th { border-top: none; }
-  td.m, th.m { font-family: var(--f-mono); font-size: 12.5px; white-space: nowrap; }
-
-  /* cadena de verificación */
-  .chain { margin: 24px 0 0; max-width: 46ch; }
-  .chain ol { list-style: none; margin: 0; padding: 0; counter-reset: step; }
-  .chain li {
-    counter-increment: step;
-    display: grid;
-    grid-template-columns: 26px 1fr;
-    gap: 12px;
-    padding-bottom: 16px;
-    position: relative;
-  }
-  .chain li::before {
-    content: counter(step);
-    font-family: var(--f-mono);
-    font-size: 11px;
-    color: var(--brass);
-    border: 1px solid var(--line-2);
-    width: 22px; height: 22px;
-    display: grid; place-items: center;
-    margin-top: 1px;
-  }
-  .chain li:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    left: 11px; top: 25px; bottom: 3px;
-    width: 1px;
-    background: var(--line-2);
-  }
-  .chain li:last-child { padding-bottom: 0; }
-  .chain .step-t { font-weight: 600; font-size: 14.5px; }
-  .chain .step-d { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
-
-  /* proyectos compactos */
-  .compact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 0;
-    border-top: 1px solid var(--line);
-    margin-top: 34px;
-  }
-  .compact {
-    padding: 26px 22px 26px 0;
-    border-bottom: 1px solid var(--line);
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-  }
-  .compact h4 {
-    font-family: var(--f-display);
-    font-weight: 600;
-    font-size: 1.02rem;
-    letter-spacing: -0.01em;
-    margin: 0;
-    line-height: 1.25;
-  }
-  .compact p { margin: 0; font-size: 14.5px; color: var(--ink-2); }
-  .compact .stack { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); margin-top: auto; }
-  .compact .repo { font-family: var(--f-mono); font-size: 11.5px; }
-
-  /* stack */
-  .stack-list { margin: 30px 0 0; display: grid; gap: 0; }
-  .stack-row {
-    display: grid;
-    grid-template-columns: var(--rail) minmax(0, 1fr);
-    gap: 32px;
-    padding-block: 15px;
-    border-bottom: 1px solid var(--line);
-    align-items: baseline;
-  }
-  .stack-row:first-child { border-top: 1px solid var(--line); }
-  .stack-row .v { font-size: 15px; color: var(--ink-2); }
-  .stack-row .v b { color: var(--ink); font-weight: 500; }
-
-  /* experiencia */
-  .cv-row {
-    display: grid;
-    grid-template-columns: var(--rail) minmax(0, 1fr);
-    gap: 32px;
-    padding-block: 20px;
-    border-bottom: 1px solid var(--line);
-  }
-  .cv-row:first-of-type { border-top: 1px solid var(--line); }
-  .cv-row h4 {
-    font-family: var(--f-body);
-    font-weight: 600;
-    font-size: 15.5px;
-    margin: 0 0 4px;
-  }
-  .cv-row p + p { margin-top: 11px; }
-  .cv-row p { margin: 0; font-size: 14.5px; color: var(--ink-2); max-width: var(--measure); }
-  .cv-row .when { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.06em; color: var(--ink-3); }
-
-  /* contacto */
-  .contact {
-    margin-top: 56px;
-    padding-top: 34px;
-    border-top: 2px solid var(--ink);
-  }
-  .contact p { max-width: var(--measure); color: var(--ink-2); margin: 0 0 20px; }
-  .contact .links { flex-direction: row; flex-wrap: wrap; gap: 8px 26px; font-size: 13.5px; }
-
-  @media (max-width: 760px) {
-    :root { --rail: 100%; }
-    .entry, .stack-row, .cv-row { grid-template-columns: minmax(0, 1fr); gap: 18px; }
-    .spec { flex-direction: row; flex-wrap: wrap; gap: 8px 22px; }
-    .spec div { flex: 0 1 auto; }
-    .stack-row, .cv-row { gap: 6px; }
-    .compact { padding-right: 0; }
-    .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 14px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; animation: none !important; }
-  }
-</style>
-
-<style>
-  /* Reset mínimo */
-  *, *::before, *::after { box-sizing: border-box; }
-  :root {
-    color-scheme: light dark;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-  body { margin: 0; }
-  img { max-width: 100%; }
-  [hidden] { display: none !important; }
-</style>
 </head>
 <body>
 <div class="wrap">
@@ -533,7 +49,7 @@
     <h2 class="sec-label" id="sec-proyectos">Proyectos</h2>
     <p class="sec-note">Los tres primeros son privados: manejan datos reales de personas o son encargos de empresa, así que el código no se publica. Lo que sigue es su arquitectura y las decisiones que la sostienen.</p>
 
-    <!-- ── PsyTrack ── -->
+    <!-- PsyTrack -->
     <article class="entry" id="psytrack">
       <div class="spec">
         <span class="tag locked">Código privado</span>
@@ -727,7 +243,7 @@
       </div>
     </article>
 
-    <!-- ── Photo_server ── -->
+    <!-- Photo_server -->
     <article class="entry" id="photo-server">
       <div class="spec">
         <span class="tag locked">Código de empresa</span>
@@ -743,7 +259,7 @@
         <p>API REST para el almacenamiento cifrado de fotografías de sesiones de análisis postural. Cada usuario accede solo a sus propias imágenes; un especialista accede además a las de los pacientes que tiene asignados. Esa relación se consulta en base de datos en cada petición, así que la app no puede saltársela enviando otro identificador.</p>
 
         <div class="chain">
-          <span class="mono" style="display:block;margin-bottom:14px;color:var(--ink-3)">Cadena de comprobaciones por petición</span>
+          <span class="mono">Cadena de comprobaciones por petición</span>
           <ol>
             <li>
               <div>
@@ -818,7 +334,7 @@
       </div>
     </article>
 
-    <!-- ── Integración SEPE ── -->
+    <!-- SEPE -->
     <article class="entry" id="sepe">
       <div class="spec">
         <span class="tag locked">Encargo de empresa</span>
@@ -1034,7 +550,7 @@
       <a href="mailto:fjvidalgarcia@gmail.com">fjvidalgarcia@gmail.com</a>
       <a href="https://github.com/FJVidalG">github.com/FJVidalG</a>
       <a href="https://www.linkedin.com/in/francisco-jesus-vidal-garcia">LinkedIn</a>
-      <a href="CV_Francisco_Vidal.pdf">CV en PDF</a>
+      <a href="CV_Francisco_Vidal_Desarrollador.pdf">CV en PDF</a>
     </nav>
   </div>
 
