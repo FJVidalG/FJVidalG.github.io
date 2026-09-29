@@ -7,7 +7,7 @@
 <meta name="description" content="Portfolio de Francisco Jesús Vidal García, desarrollador Android y Java en Málaga. Arquitectura y decisiones de diseño de seis proyectos.">
 <meta name="author" content="Francisco Jesús Vidal García">
 
-<!-- Cabecera -->
+<!-- Vista previa al compartir el enlace (LinkedIn, WhatsApp, Slack) -->
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Francisco Jesús Vidal García, desarrollador Android | Java">
 <meta property="og:description" content="Portfolio de Francisco Jesús Vidal García, desarrollador Android y Java en Málaga. Arquitectura y decisiones de diseño de seis proyectos.">
@@ -94,6 +94,7 @@
     border-radius: 2px;
   }
 
+  /* ── etiquetas mono ───────────────────────────── */
   .mono {
     font-family: var(--f-mono);
     font-size: 11px;
@@ -102,7 +103,7 @@
     color: var(--ink-3);
   }
 
-  /* cabecera */
+  /* ── cabecera ─────────────────────────────────── */
   .masthead {
     border-bottom: 2px solid var(--ink);
     padding-block: 56px 26px;
@@ -158,6 +159,7 @@
   .links a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 1px; }
   .links a:hover { color: var(--brass); border-bottom-color: var(--brass); }
 
+  /* ── tesis ────────────────────────────────────── */
   .thesis {
     padding-block: 40px 44px;
     border-bottom: 1px solid var(--line);
@@ -176,7 +178,7 @@
   .thesis p:last-child { margin-bottom: 0; }
   .thesis strong { color: var(--ink); font-weight: 600; }
 
-  /* secciones */
+  /* ── secciones ────────────────────────────────── */
   section { padding-block: 48px 0; }
   .sec-label {
     font-family: var(--f-mono);
@@ -195,7 +197,7 @@
     font-size: 15.5px;
   }
 
-  /* entrada de proyecto */
+  /* ── entrada de proyecto (hoja de especificación) ── */
   .entry {
     display: grid;
     grid-template-columns: var(--rail) minmax(0, 1fr);
@@ -204,6 +206,7 @@
     border-bottom: 1px solid var(--line);
   }
   .entry:last-of-type { border-bottom: none; }
+  .entry { scroll-margin-top: 16px; }
 
   .spec { display: flex; flex-direction: column; gap: 14px; }
   .spec div { display: flex; flex-direction: column; gap: 3px; }
@@ -247,13 +250,13 @@
     padding: 1px 4px;
   }
 
-  /* decisión */
+  /* ── bloque de decisión ───────────────────────── */
   .decision { margin: 22px 0 0; max-width: var(--measure); }
   .decision .mono { color: var(--brass); display: block; margin-bottom: 5px; }
   .decision p { margin: 0 0 13px; color: var(--ink-2); }
   .decision p:last-child { margin-bottom: 0; }
 
-  /* capturas */
+  /* ── capturas ─────────────────────────────────── */
   .shots {
     margin: 28px 0 0;
     display: grid;
@@ -283,7 +286,7 @@
     margin-bottom: 4px;
   }
 
-  /* diagrama */
+  /* ── diagrama ─────────────────────────────────── */
   .diagram { margin: 28px 0 0; }
   .diagram > .mono { display: block; margin-bottom: 9px; }
   .diagram .frame {
@@ -309,7 +312,7 @@
   .diagram img.capture { display: block; width: 100%; height: auto; border: 1px solid var(--line-2); background: #fff; }
   .diagram figcaption code { background: color-mix(in srgb, var(--navy) 11%, transparent); }
 
-  /* diagramas de flujo */
+  /* ── diagramas de flujo ───────────────────────── */
   .fl { display: block; width: 100%; min-width: 560px; height: auto; }
   .fl .bx   { fill: var(--surface); stroke: var(--line-2); stroke-width: 1; }
   .fl .bx.key { stroke: var(--brass); stroke-width: 1.6; }
@@ -321,7 +324,7 @@
   .fl .ln   { stroke: var(--line-2); stroke-width: 1.25; fill: none; }
   .fl .ah   { fill: var(--line-2); }
 
-  /* petición / respuesta */
+  /* ── par petición / respuesta ─────────────────── */
   .io { margin: 24px 0 0; max-width: var(--measure); }
   .io > .mono { display: block; margin-bottom: 8px; }
   .io.deny > .mono { color: var(--brass); }
@@ -343,7 +346,7 @@
   .io pre .dim { color: var(--ink-3); }
   .io figcaption { margin-top: 9px; font-size: 14px; color: var(--ink-2); }
 
-  /* tablas */
+  /* ── tablas ───────────────────────────────────── */
   .scroller { overflow-x: auto; margin: 22px 0 0; }
   table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 420px; }
   caption {
@@ -376,7 +379,7 @@
   tbody tr:first-child th { border-top: none; }
   td.m, th.m { font-family: var(--f-mono); font-size: 12.5px; white-space: nowrap; }
 
-  /* verificación */
+  /* ── cadena de verificación (secuencia real) ──── */
   .chain { margin: 24px 0 0; max-width: 46ch; }
   .chain ol { list-style: none; margin: 0; padding: 0; counter-reset: step; }
   .chain li {
@@ -408,7 +411,7 @@
   .chain .step-t { font-weight: 600; font-size: 14.5px; }
   .chain .step-d { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
 
-  /* proyectos */
+  /* ── proyectos compactos ──────────────────────── */
   .compact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -435,7 +438,7 @@
   .compact .stack { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); margin-top: auto; }
   .compact .repo { font-family: var(--f-mono); font-size: 11.5px; }
 
-  /* stack */
+  /* ── stack ────────────────────────────────────── */
   .stack-list { margin: 30px 0 0; display: grid; gap: 0; }
   .stack-row {
     display: grid;
@@ -449,7 +452,7 @@
   .stack-row .v { font-size: 15px; color: var(--ink-2); }
   .stack-row .v b { color: var(--ink); font-weight: 500; }
 
-  /* experiencia */
+  /* ── experiencia ──────────────────────────────── */
   .cv-row {
     display: grid;
     grid-template-columns: var(--rail) minmax(0, 1fr);
@@ -468,7 +471,7 @@
   .cv-row p { margin: 0; font-size: 14.5px; color: var(--ink-2); max-width: var(--measure); }
   .cv-row .when { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.06em; color: var(--ink-3); }
 
-  /* contacto */
+  /* ── contacto ─────────────────────────────────── */
   .contact {
     margin-top: 56px;
     padding-top: 34px;
@@ -493,6 +496,7 @@
 </style>
 
 <style>
+  /* Reset mínimo: en el artefacto lo aportaba la plataforma, aquí va explícito */
   *, *::before, *::after { box-sizing: border-box; }
   :root {
     color-scheme: light dark;
@@ -529,8 +533,8 @@
     <h2 class="sec-label" id="sec-proyectos">Proyectos</h2>
     <p class="sec-note">Los tres primeros son privados: manejan datos reales de personas o son encargos de empresa, así que el código no se publica. Lo que sigue es su arquitectura y las decisiones que la sostienen.</p>
 
-    <!-- PsyTrack -->
-    <article class="entry">
+    <!-- ── PsyTrack ── -->
+    <article class="entry" id="psytrack">
       <div class="spec">
         <span class="tag locked">Código privado</span>
         <div><span class="k">Estado</span><span class="v">En desarrollo</span></div>
@@ -723,8 +727,8 @@
       </div>
     </article>
 
-    <!-- Photo_server -->
-    <article class="entry">
+    <!-- ── Photo_server ── -->
+    <article class="entry" id="photo-server">
       <div class="spec">
         <span class="tag locked">Código de empresa</span>
         <div><span class="k">Estado</span><span class="v">En producción</span></div>
@@ -814,8 +818,8 @@
       </div>
     </article>
 
-    <!-- Integración SEPE -->
-    <article class="entry">
+    <!-- ── Integración SEPE ── -->
+    <article class="entry" id="sepe">
       <div class="spec">
         <span class="tag locked">Encargo de empresa</span>
         <div><span class="k">Estado</span><span class="v">En producción</span></div>
@@ -961,26 +965,33 @@
   <section aria-labelledby="sec-exp">
     <h2 class="sec-label" id="sec-exp">Experiencia</h2>
     <div class="cv-row">
-      <span class="when">2025 - actualidad</span>
+      <span class="when">2026 - actualidad</span>
       <div>
         <h4>Desarrollador freelance</h4>
-        <p><strong>Incidesa Formación</strong>, colaboración técnica y docente. Desarrollé el plugin que conecta su campus con el sistema de verificación del SEPE, y la API de fotografías de una app de análisis postural. Diseñé y monté el servidor donde corre, junto a los alumnos de prácticas a los que tutorizaba.</p>
-        <p>Monté el campus Moodle y lo integré con la web corporativa, hecha en Odoo, donde además automaticé pasos del flujo de trabajo que antes eran manuales. Desarrollo e imparto cursos de programación en Java y Kotlin, y de administración de Linux.</p>
-        <p><strong>Tentetieso Ediciones</strong>, WordPress. Conseguí que la web se indexara en Google para que apareciera en las búsquedas, y corregí la estructura de URLs. Arreglé la maquetación y el escalado de imágenes con Elementor y CSS, la adapté a móvil e integré los formularios con MailerLite y WPForms.</p>
+        <p><strong>Incidesa Formación</strong>, colaboración técnica y docente tras las prácticas del ciclo. Desarrollé el plugin que conecta su campus con el sistema de verificación del SEPE, y la API de fotografías de una app de análisis postural. Diseñé y monté el servidor donde corre, junto a los alumnos de prácticas a los que tutorizaba.</p>
+        <p>Diseñé y monté el campus Moodle, y lo integré con la web corporativa, hecha en Odoo, donde además automaticé pasos del flujo de trabajo que antes eran manuales. Desarrollo e imparto cursos de programación en Java y Kotlin, y de administración de Linux.</p>
+        <p><strong>Tentetieso Ediciones</strong>, WordPress. Desarrollé un widget Flip Box propio para Elementor, en sustitución de uno que había pasado a ser de pago. Conseguí que la web se indexara en Google para que apareciera en las búsquedas, y corregí la estructura de URLs. Arreglé la maquetación y el escalado de imágenes con Elementor y CSS, la adapté a móvil e integré los formularios con MailerLite y WPForms.</p>
+      </div>
+    </div>
+    <div class="cv-row">
+      <span class="when">oct. - dic. 2025</span>
+      <div>
+        <h4>Prácticas de desarrollo (FCT)</h4>
+        <p>Incidesa Formación. Mejoré la web corporativa en Odoo 19, empecé a automatizar su flujo de trabajo y colaboré con Moodle.</p>
       </div>
     </div>
     <div class="cv-row">
       <span class="when">2022 - 2024</span>
       <div>
-        <h4>Formador y consultor autónomo</h4>
-        <p>Impartí formación en salud laboral para empresas.</p>
+        <h4>Formador autónomo</h4>
+        <p>Impartí formación para empresas en salud laboral, prevención del acoso, trato con el cliente y selección de personal.</p>
       </div>
     </div>
     <div class="cv-row">
       <span class="when">2022</span>
       <div>
         <h4>Técnico de planificación formativa</h4>
-        <p>A&amp;R Consulting. Coordinación con FUNDAE y gestión de bonificaciones.</p>
+        <p>A&amp;R Consulting. Coordinación con clientes y docentes, y documentación exigida por FUNDAE.</p>
       </div>
     </div>
   </section>
@@ -1012,7 +1023,7 @@
       <span class="when">Idiomas</span>
       <div>
         <h4>Inglés B1</h4>
-        <p>Certificado por Trinity College London.</p>
+        <p>ISE I, certificado por Trinity College London.</p>
       </div>
     </div>
   </section>
@@ -1023,7 +1034,7 @@
       <a href="mailto:fjvidalgarcia@gmail.com">fjvidalgarcia@gmail.com</a>
       <a href="https://github.com/FJVidalG">github.com/FJVidalG</a>
       <a href="https://www.linkedin.com/in/francisco-jesus-vidal-garcia">LinkedIn</a>
-      <a href="CV_Francisco_Vidal_Desarrollador.pdf">CV en PDF</a>
+      <a href="CV_Francisco_Vidal.pdf">CV en PDF</a>
     </nav>
   </div>
 
