@@ -10,24 +10,14 @@ Página estática escrita a mano en HTML y CSS, sin frameworks ni proceso de com
 |---------|--------|
 | `index.html` | Estructura y contenido de la página, con los diagramas en SVG |
 | `css/estilos.css` | Estilos, incluido el tema oscuro |
-| `img/` | Capturas de pantalla de los proyectos, en WebP |
+| `img/` | Capturas de pantalla de los proyectos |
 | `CV_Francisco_Vidal_Desarrollador.pdf` | Currículum enlazado desde la página |
-| `.nojekyll` | Desactiva el procesado Jekyll de GitHub Pages: el sitio se sirve tal cual |
+| `.nojekyll` | Desactiva el procesado Jekyll de GitHub Pages |
 
 ## Detalles técnicos
 
 Los diagramas (el modelo de datos de PsyTrack y los dos de flujo) son **SVG escritos a mano** dentro del HTML, no imágenes exportadas. Pesan unos pocos kilobytes, el texto es seleccionable, escalan sin pixelarse y toman sus colores de las variables CSS, así que se adaptan solos al tema claro y al oscuro.
 
-Las capturas están en **WebP**, con carga diferida (`loading="lazy"`) y dimensiones declaradas en el HTML para que la página no salte mientras se cargan.
+Las capturas están en **WebP** y dimensiones declaradas en el HTML para que la página no salte mientras se cargan.
 
 El tema sigue la preferencia del sistema mediante `prefers-color-scheme`, con la paleta definida en `:root` y redefinida para modo oscuro. La maquetación usa CSS Grid y pasa a una columna por debajo de 760 px.
-
-## Publicar cambios
-
-```bash
-git add .
-git commit -m "Actualiza el portfolio"
-git push
-```
-
-GitHub Pages reconstruye el sitio en menos de un minuto.
