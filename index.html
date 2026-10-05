@@ -238,7 +238,7 @@
 
         <div class="decision">
           <span class="mono">Decisión: aviso diario de agenda</span>
-          <p>Cada mañana la aplicación consulta la agenda y, si hay pacientes ese día, avisa al profesional. La tarea se programa con WorkManager y no con un temporizador en memoria, porque debe sobrevivir al cierre de la aplicación y al reinicio del dispositivo. A cambio, Android puede retrasarla para agrupar trabajo y ahorrar batería: el aviso llega <em>alrededor</em> de la hora fijada. Para un recordatorio me vale; si hiciera falta puntualidad exacta, habría que pasar a <code>AlarmManager</code>.</p>
+          <p>Cada mañana la aplicación consulta la agenda y, si hay pacientes ese día, avisa al profesional. La tarea se programa con WorkManager y no con un temporizador en memoria, porque debe sobrevivir al cierre de la aplicación y al reinicio del dispositivo. A cambio, Android puede retrasarla para agrupar trabajo y ahorrar batería: el aviso llega <em>alrededor</em> de la hora fijada.</p>
         </div>
       </div>
     </article>
@@ -333,12 +333,12 @@
 
         <div class="decision">
           <span class="mono">Decisión: por qué GCM y no CBC</span>
-          <p>Los archivos se cifran con AES-256-GCM, con vector de inicialización aleatorio por archivo. Elegí GCM sobre CBC porque es un modo autenticado: produce una etiqueta que se verifica al descifrar, así que alterar un byte hace fallar el descifrado en vez de devolver datos corruptos sin avisar. El IV no se reutiliza nunca: repetirlo en GCM degrada la confidencialidad y permite falsificar etiquetas.</p>
+          <p>Los archivos se cifran con AES-256-GCM, con vector de inicialización aleatorio por archivo. Elegí GCM sobre CBC porque produce una etiqueta que se verifica al descifrar, así que alterar un byte hace fallar el descifrado en vez de devolver datos corruptos sin avisar. El IV no se reutiliza nunca: repetirlo en GCM degrada la confidencialidad y permite falsificar etiquetas.</p>
         </div>
 
         <div class="decision">
           <span class="mono">Decisión: el proceso no se expone</span>
-          <p>Nginx termina el TLS y reenvía por loopback al contenedor, cuyo puerto no está publicado a internet. Certbot renueva el certificado solo. Es la parte que más me ha enseñado: escribir el código fue lo rápido, dejarlo desplegado y capaz de volver a levantarse sin que nadie entre al servidor me costó bastante más.</p>
+          <p>Nginx termina el TLS y reenvía por loopback al contenedor, cuyo puerto no está publicado a internet.</p>
         </div>
       </div>
     </article>
