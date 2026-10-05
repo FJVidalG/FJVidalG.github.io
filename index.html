@@ -238,7 +238,7 @@
 
         <div class="decision">
           <span class="mono">Decisión: aviso diario de agenda</span>
-          <p>Cada mañana la aplicación consulta la agenda y, si hay pacientes ese día, avisa al profesional. La tarea se programa con WorkManager y no con un temporizador en memoria, porque debe sobrevivir al cierre de la aplicación y al reinicio del dispositivo. A cambio, Android puede retrasarla para agrupar trabajo y ahorrar batería. El aviso llega <em>alrededor</em> de la hora fijada. Para un recordatorio es suficiente.</p>
+          <p>Cada mañana la aplicación consulta la agenda y, si hay pacientes ese día, avisa al profesional. La tarea se programa con WorkManager y no con un temporizador en memoria, porque debe sobrevivir al cierre de la aplicación y al reinicio del dispositivo. A cambio, Android puede retrasarla para agrupar trabajo y ahorrar batería: el aviso llega <em>alrededor</em> de la hora fijada. Para un recordatorio me vale; si hiciera falta puntualidad exacta, habría que pasar a <code>AlarmManager</code>.</p>
         </div>
       </div>
     </article>
@@ -249,7 +249,7 @@
         <span class="tag locked">Código de empresa</span>
         <div><span class="k">Estado</span><span class="v">En producción</span></div>
         <div><span class="k">Tipo</span><span class="v">API REST</span></div>
-        <div><span class="k">Runtime</span><span class="v">Node.js 18 y TypeScript</span></div>
+        <div><span class="k">Runtime</span><span class="v">Node.js 20 y TypeScript</span></div>
         <div><span class="k">Stack</span><span class="v">Express, Firebase Auth, Firestore, AES-256-GCM</span></div>
         <div><span class="k">Despliegue</span><span class="v">Docker Compose, Nginx, TLS Let's Encrypt, Ubuntu</span></div>
       </div>
@@ -305,9 +305,18 @@
 
 <span class="st-ok">200 OK</span>
 {
+  "total": 2,
   "photos": [
-    { "filename": "20260314_lateral.enc", "uploadedAt": "2026-03-14T09:22:11Z" },
-    { "filename": "20260314_frontal.enc", "uploadedAt": "2026-03-14T09:23:40Z" }
+    {
+      "filename": "1773480131482-482913377.jpg",
+      "size": 1843228,
+      "uploadedAt": "2026-03-14T09:22:11.482Z"
+    },
+    {
+      "filename": "1773480220117-90517264.jpg",
+      "size": 1796415,
+      "uploadedAt": "2026-03-14T09:23:40.117Z"
+    }
   ]
 }</code></pre>
         </figure>
@@ -318,18 +327,18 @@
 <span class="dim">Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6…</span>
 
 <span class="st-no">403 Forbidden</span>
-{ "error": "patient_not_assigned" }</code></pre>
+{ "error": "Sin permiso para ver estas fotos" }</code></pre>
           <figcaption>El token es válido en las dos peticiones y el usuario es el mismo. Lo único que cambia es el paciente que pide. La segunda se rechaza porque el servidor consulta en base de datos si ese paciente está asignado a ese especialista, y no lo está.</figcaption>
         </figure>
 
         <div class="decision">
           <span class="mono">Decisión: por qué GCM y no CBC</span>
-          <p>Los archivos se cifran con AES-256-GCM, con vector de inicialización aleatorio por archivo. Elegí GCM sobre CBC porque produce una etiqueta que se verifica al descifrar, así que alterar un byte hace fallar el descifrado en vez de devolver datos corruptos sin avisar. El IV no se reutiliza nunca, repetirlo en GCM degrada la confidencialidad y permite falsificar etiquetas.</p>
+          <p>Los archivos se cifran con AES-256-GCM, con vector de inicialización aleatorio por archivo. Elegí GCM sobre CBC porque es un modo autenticado: produce una etiqueta que se verifica al descifrar, así que alterar un byte hace fallar el descifrado en vez de devolver datos corruptos sin avisar. El IV no se reutiliza nunca: repetirlo en GCM degrada la confidencialidad y permite falsificar etiquetas.</p>
         </div>
 
         <div class="decision">
           <span class="mono">Decisión: el proceso no se expone</span>
-          <p>Nginx termina el TLS y reenvía por loopback al contenedor, cuyo puerto no está publicado a internet. Certbot renueva el certificado solo.</p>
+          <p>Nginx termina el TLS y reenvía por loopback al contenedor, cuyo puerto no está publicado a internet. Certbot renueva el certificado solo. Es la parte que más me ha enseñado: escribir el código fue lo rápido, dejarlo desplegado y capaz de volver a levantarse sin que nadie entre al servidor me costó bastante más.</p>
         </div>
       </div>
     </article>
